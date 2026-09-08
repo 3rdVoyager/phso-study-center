@@ -5,123 +5,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Pilgrimage Homeschool Science Olympiad Resource Vault</title>
     <link rel="stylesheet" href="/css/main.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/assets/favicon/favicon-96x96.png"
-      sizes="96x96"
-    />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/assets/favicon/apple-touch-icon.png"
-    />
     <link rel="manifest" href="/assets/favicon/site.webmanifest" />
   </head>
   <body>
-    <header class="site-header" role="banner">
-      <a href="./" class="site-title-link"
-        ><span class="site-title">PHSO Resource Vault</span></a
-      >
-      <nav class="site-tabs" role="tablist" aria-label="Main site tabs">
-          <button
-            class="tab-btn"
-            role="tab"
-            aria-selected="false"
-            data-tab="home"
-            id="tab-home"
-          >
-            Home
-          </button>
-          <button
-            class="tab-btn"
-            role="tab"
-            aria-selected="true"
-            data-tab="test"
-            id="tab-test"
-          >
-            External Resource Index
-          </button>
-          <button
-            class="tab-btn"
-            role="tab"
-            aria-selected="false"
-            data-tab="resources"
-            id="tab-resources"
-          >
-            Internal Resource Index
-          </button>
-      </nav>
-    </header>
-    <div id="app"></div>
-
-    <section id="home" class="hidden">
-      <div class="container home-inner">
-        <h2>Welcome to the Pilgrimage Homeschool Resource Vault</h2>
+    <main class="home-page">
+      <div class="container home-content">
+        <h1>Welcome to the Pilgrimage Homeschool Resource Vault</h1>
         <p>
-          The Pilgrimage Homeschool Resource Vault is a student-run directory of
-          Science Olympiad resources. It indexes publicly-available study
-          materials, tournament collections, and archived web resources to make
-          them easier to discover and browse.
+          This is a student-run directory for Pilgrimage Homeschool Science
+          Olympiad resources.
         </p>
         <p>
-          Use the <strong>External Resource Index</strong> to search and filter
-          collections by year, division, and level. Toggle between grid and list
-          views to browse the results.
-        </p>
-        <p>
-          If you own or are affiliated with any listed resources and want them
-          removed, please use the contact/report link in the footer and include
-          the resource URL.
+          Public study materials, tournament collections, and archived web
+          resources will be organized here.
         </p>
       </div>
-    </section>
-
-    <section id="resources" class="hidden">
-      <div class="resources-inner">
-        <h2>Internal Resource Index</h2>
-        <p>
-          This section is currently a placeholder and will be populated with
-          internal resource entries soon. If you have resources to add, please
-          let us know.
-        </p>
-      </div>
-    </section>
-
-    <script type="module" src="js/main.js"></script>
-
-    <footer
-      class="site-footer"
-      role="contentinfo"
-      aria-label="Disclaimer and content policy"
-    >
-      <div class="container">
-        <strong>Disclaimer and Content Policy</strong>
-        <p>
-          This website is an independent, non-commercial study tool created by
-          students, for students. It organizes publicly available Science
-          Olympiad resources to help teams prepare. This site does not host or
-          store files; it is a directory linking to external resources.
-          <br /><br /><strong
-            >If you own or are affiliated with a resource and would like it
-            removed, please contact us.</strong
-          >
-          We will verify requests, remove the link from the index, prevent
-          re-adding, and follow up within a few days.
-        </p>
-        <br />
-        <p>© 2026 PHSO Resource Vault. Not affiliated with SOINC.</p>
-        <br />
-        <a
-          href="https://forms.gle/ts5h2raLVN2qbEpWA"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-btn"
-          >Contact / Report an Issue</a
-        >
-      </div>
-    </footer>
+    </main>
+    <script type="module" src="/js/nav.js"></script>
   </body>
 </html>
