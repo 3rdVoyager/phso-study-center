@@ -1,9 +1,7 @@
 import { createRenderer } from './render.js';
 import { state } from './state.js';
-import {
-	createElements,
-	initNavigation
-} from './ui.js';
+import { createElements } from './ui.js';
+import { initNavigation } from './nav.js';
 
 const elements = createElements();
 const renderer = createRenderer(state, elements);

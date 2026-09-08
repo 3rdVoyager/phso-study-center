@@ -1,0 +1,71 @@
+.site-header {
+	background: var(--color-slate);
+	color: var(--color-gold);
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	width: 100%;
+	margin-bottom: 16px;
+	padding: 16px;
+	position: relative;
+}
+
+.site-title-link {
+	display: inline-flex;
+	align-items: center;
+	color: var(--color-burgundy);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.site-title {
+	color: var(--color-gold);
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+.site-tabs {
+	display: inline-flex;
+	gap: 8px;
+	margin-left: 16px;
+}
+
+.tab-btn {
+	border: 1px solid transparent;
+	border-radius: 8px;
+	background: transparent;
+	color: var(--color-text);
+	cursor: pointer;
+	font-weight: 600;
+	padding: 8px 10px;
+}
+
+.tab-btn[aria-selected="true"] {
+	border-color: var(--color-gold);
+	background: var(--color-burgundy);
+	color: var(--color-gold-light);
+}
+
+.tab-btn:focus {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 2px;
+}
+
+.site-footer {
+	width: 100%;
+	padding: 2rem 0;
+	margin-top: 4rem;
+	border-top: 3px solid var(--color-gold);
+	border-radius: 6px;
+	background: var(--color-slate);
+	color: var(--color-slate-light);
+	font-size: 0.95rem;
+	text-align: left;
+	position: fixed;
+	bottom: 0;
+}
+
+.site-footer p {
+	margin: 6px 0;
+	line-height: 1.35;
+}

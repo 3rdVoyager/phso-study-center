@@ -1,9 +1,10 @@
 * {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
 body {
-	margin: 12px;
 	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	background: var(--color-bg);
 	color: var(--color-text);
@@ -45,21 +46,21 @@ body {
 .error {
 	padding: 10px;
 	border-radius: 6px;
-	background: #fee;
-	color: #900;
+	background: var(--color-error-bg);
+	color: var(--color-error-text);
 }
 
 .contact-btn {
 	padding: 0.6rem 1.2rem;
 	border-radius: 4px;
-	background: #3b82f6;
-	color: white;
+	background: var(--color-gold);
+	color: var(--color-burgundy-dark);
 	font-weight: bold;
 	text-decoration: none;
 	transition: background 0.3s ease;
 }
 
 .contact-btn:hover {
-	background: #2563eb;
+	background: var(--color-gold-light);
 	text-decoration: underline;
 }
