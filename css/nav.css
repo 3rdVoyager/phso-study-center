@@ -1,26 +1,39 @@
 .site-header {
-	padding: 16px 0;
+	padding: 16px;
 	border-bottom: 3px solid var(--color-gold);
 	background: var(--color-slate);
-}
-
-.nav-inner {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 24px;
-}
-
-.site-title-link {
-	color: var(--color-gold);
-	font-size: 1.2rem;
-	font-weight: 800;
-	text-decoration: none;
+	gap: 16px;
 }
 
 .site-header nav {
 	display: flex;
 	gap: 16px;
+}
+
+.site-title {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--color-gold);
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.brand-logo {
+	width: 44px;
+	height: 44px;
+	object-fit: contain;
+}
+
+.footer-brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 10px;
 }
 
 .site-header nav a {
@@ -31,26 +44,27 @@
 	text-decoration: none;
 }
 
-.site-header nav a[aria-current="page"],
-.site-header nav a:hover {
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] {
 	background: var(--color-burgundy);
 	color: var(--color-gold-light);
 }
 
 .site-footer {
-	padding: 32px 0;
+	padding: 16px;
 	margin-top: 64px;
 	border-top: 3px solid var(--color-gold);
 	background: var(--color-slate);
 	color: var(--color-slate-light);
 }
 
-.site-footer strong {
-	color: var(--color-gold-light);
-}
-
 .site-footer p {
 	max-width: 560px;
 	margin: 8px 0 20px;
 	line-height: 1.5;
+}
+
+.site-footer a {
+	color: var(--color-gold-light);
+	font-weight: 700;
 }
