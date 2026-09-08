@@ -36,8 +36,7 @@
 }
 
 .controls .control-btn,
-.view-toggle,
-.theme-toggle {
+.view-toggle {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
@@ -61,8 +60,7 @@
 }
 
 .controls .control-btn:hover,
-.view-toggle:hover,
-.theme-toggle:hover {
+.view-toggle:hover {
 	background: rgba(3, 102, 214, 0.06);
 }
 
@@ -132,9 +130,9 @@
 	justify-content: center;
 	height: 18px;
 	padding: 2px 8px;
-	border: 1px solid rgba(0, 0, 0, 0.06);
+	border: 1px solid rgba(255, 255, 255, 0.04);
 	border-radius: 999px;
-	background: transparent;
+	background: rgba(255, 255, 255, 0.04);
 	color: var(--color-text);
 	font-size: 0.72rem;
 	font-weight: 600;
@@ -146,49 +144,23 @@
 
 .meta-bubble[data-type="year"] {
 	min-width: var(--meta-bubble-min-year, auto);
-	background: rgba(239, 68, 68, 0.12);
-	color: rgba(239, 68, 68, 0.98);
-}
-
-.meta-bubble[data-type="division"] {
-	min-width: var(--meta-bubble-min-division, auto);
-	background: rgba(59, 130, 246, 0.12);
-	color: rgba(59, 130, 246, 0.98);
-}
-
-.meta-bubble[data-type="level"] {
-	min-width: var(--meta-bubble-min-level, auto);
-	background: rgba(245, 158, 11, 0.12);
-	color: rgba(245, 158, 11, 0.98);
-}
-
-.meta-bubble.source-bubble {
-	border-color: rgba(34, 197, 94, 0.4);
-	color: rgba(34, 197, 94, 0.98);
-}
-
-body.dark .meta-bubble {
-	border-color: rgba(255, 255, 255, 0.04);
-	background: rgba(255, 255, 255, 0.04);
-	color: var(--color-muted);
-}
-
-body.dark .meta-bubble[data-type="year"] {
 	background: rgba(239, 68, 68, 0.28);
 	color: #fff4f4;
 }
 
-body.dark .meta-bubble[data-type="division"] {
+.meta-bubble[data-type="division"] {
+	min-width: var(--meta-bubble-min-division, auto);
 	background: rgba(59, 130, 246, 0.28);
 	color: #eaf4ff;
 }
 
-body.dark .meta-bubble[data-type="level"] {
+.meta-bubble[data-type="level"] {
+	min-width: var(--meta-bubble-min-level, auto);
 	background: rgba(245, 158, 11, 0.28);
 	color: #fff8e6;
 }
 
-body.dark .meta-bubble.source-bubble {
+.meta-bubble.source-bubble {
 	border-color: transparent;
 	background: rgba(34, 197, 94, 0.22);
 	color: #f2fff7;

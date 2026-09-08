@@ -98,8 +98,7 @@ export function initMetadataPanel(state, elements, render) {
 	return panel;
 }
 
-export function initSettings(elements, render, applyTheme) {
-	const themeButton = create('button', { type: 'button', class: 'theme-toggle control-btn' });
+export function initSettings(elements, render) {
 	const settingsButton = create('button', {
 		type: 'button',
 		class: 'control-btn settings-btn',
@@ -110,7 +109,7 @@ export function initSettings(elements, render, applyTheme) {
 		id: 'settings-panel',
 		class: 'settings-panel',
 		'aria-hidden': 'true'
-	}, themeButton);
+	});
 	const header = document.querySelector('.site-header');
 	(header || elements.controls).append(settingsButton, settingsPanel);
 
@@ -131,18 +130,12 @@ export function initSettings(elements, render, applyTheme) {
 	});
 	resetButton.addEventListener('click', () => {
 		if (!confirm('Reset saved session? This will clear saved settings and presets for this site.')) return;
-		['scioly_enabled_metadata', 'scioly_theme', 'scioly_grid_size', 'scioly_sort',
+		['scioly_enabled_metadata', 'scioly_grid_size', 'scioly_sort',
 			'scioly_open_new_tab', 'scioly_restore_filters', 'scioly_filter_presets']
 			.forEach(key => localStorage.removeItem(key));
 		location.reload();
 	});
 
-	const storedTheme = localStorage.getItem('scioly_theme');
-	const initialTheme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-	applyTheme(initialTheme, themeButton);
-	themeButton.addEventListener('click', () => {
-		applyTheme(document.body.classList.contains('dark') ? 'light' : 'dark', themeButton);
-	});
 	settingsButton.addEventListener('click', () => {
 		const open = settingsButton.getAttribute('aria-expanded') === 'true';
 		settingsButton.setAttribute('aria-expanded', String(!open));
@@ -196,11 +189,5 @@ export function initNavigation() {
 	document.addEventListener('keydown', event => {
 		if (event.key === 'Escape') setSidebar(false);
 	});
-}
-
-export function applyTheme(theme, button) {
-	document.body.classList.toggle('dark', theme === 'dark');
-	button.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
-	try { localStorage.setItem('scioly_theme', theme); } catch {}
 }
 

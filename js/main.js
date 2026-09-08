@@ -2,7 +2,6 @@ import { readMetadataSetting } from './helpers.js';
 import { createRenderer } from './render.js';
 import { state } from './state.js';
 import {
-	applyTheme,
 	createElements,
 	initMetadataPanel,
 	initNavigation,
@@ -32,7 +31,7 @@ elements.viewToggleBtn.addEventListener('click', () => {
 });
 
 initMetadataPanel(state, elements, renderer.render);
-initSettings(elements, renderer.render, applyTheme);
+initSettings(elements, renderer.render);
 initNavigation();
 renderer.render();
 

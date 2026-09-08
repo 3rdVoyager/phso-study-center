@@ -1,13 +1,4 @@
 :root {
-	--color-bg: #ffffff;
-	--color-text: #111111;
-	--color-muted: #555555;
-	--color-card-bg: #ffffff;
-	--color-border: #e6e6e6;
-	--color-link: #0366d6;
-}
-
-body.dark {
 	--color-bg: #0b0b0d;
 	--color-text: #e6eef6;
 	--color-muted: #bfc9d6;

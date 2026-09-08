@@ -1,3 +1,3 @@
-# Pilgrimage Homeschool Team Resource
+# Pilgrimage Homeschool Resources
 
-This site is an internal team study tool created by Pilgrimage Homeschool team members. Its sole purpose is to organize publicly available Science Olympiad resources to help our team prepare for competitions more effectively.
+This site is an internal team study tool created by Pilgrimage Homeschool team members. Its purpose is to organize publicly available resources to help our Science Olympiad team prepare for competitions more effectively.
