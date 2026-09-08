@@ -50,21 +50,3 @@ export function getItemSeasons(item) {
 	const rawYear = getField(item, 'Year', 'year', 'Year(s)');
 	return extractYears(rawYear).map(year => `${year}-${year + 1}`);
 }
-
-export function getOpenLinksSetting() {
-	try {
-		const value = localStorage.getItem('scioly_open_new_tab');
-		return value === null ? true : value === 'true';
-	} catch {
-		return true;
-	}
-}
-
-export function readMetadataSetting() {
-	try {
-		const saved = JSON.parse(localStorage.getItem('scioly_enabled_metadata'));
-		return new Set(Array.isArray(saved) ? saved : ['year', 'division', 'level']);
-	} catch {
-		return new Set(['year', 'division', 'level']);
-	}
-}

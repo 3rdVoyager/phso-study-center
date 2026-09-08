@@ -4,6 +4,5 @@ export const state = {
 	resources: [],
 	query: '',
 	viewMode: 'grid',
-	searchScope: 'collections',
-	enabledMetadata: new Set(['year', 'division', 'level'])
+	searchScope: 'collections'
 };

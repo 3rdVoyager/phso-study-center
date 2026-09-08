@@ -1,4 +1,4 @@
-import { create, getField, getItemSeasons, getOpenLinksSetting, normalize } from './helpers.js';
+import { create, getField, getItemSeasons, normalize } from './helpers.js';
 
 export function createRenderer(state, elements) {
 	let bubbleResizeTimer;
@@ -64,9 +64,9 @@ export function createRenderer(state, elements) {
 		const titleAttributes = {
 			class: 'title',
 			href: getField(item, 'Link', 'link_url') || '#',
-			target: getOpenLinksSetting() ? '_blank' : '_self'
+			target: '_blank',
+			rel: 'noopener noreferrer'
 		};
-		if (getOpenLinksSetting()) titleAttributes.rel = 'noopener noreferrer';
 		card.appendChild(create('a', titleAttributes, titleText));
 
 		const meta = create('div', { class: 'meta' });
@@ -75,12 +75,8 @@ export function createRenderer(state, elements) {
 			division: getField(item, 'Division', 'division'),
 			level: getField(item, 'Level', 'level')
 		};
-		if (state.enabledMetadata.has('source')) {
-			meta.appendChild(create('span', { class: 'meta-bubble source-bubble', 'data-type': 'source' },
-				source === 'archive' ? 'Archive' : 'Collection'));
-		}
 		Object.entries(values).forEach(([type, value]) => {
-			if (state.enabledMetadata.has(type) && String(value).trim()) {
+			if (String(value).trim()) {
 				meta.appendChild(create('span', { class: 'meta-bubble', 'data-type': type }, String(value)));
 			}
 		});

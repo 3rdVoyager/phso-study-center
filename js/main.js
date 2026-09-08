@@ -1,15 +1,11 @@
-import { readMetadataSetting } from './helpers.js';
 import { createRenderer } from './render.js';
 import { state } from './state.js';
 import {
 	createElements,
-	initMetadataPanel,
-	initNavigation,
-	initSettings
+	initNavigation
 } from './ui.js';
 
 const elements = createElements();
-state.enabledMetadata = readMetadataSetting();
 const renderer = createRenderer(state, elements);
 
 elements.searchInput.addEventListener('input', event => {
@@ -30,12 +26,10 @@ elements.viewToggleBtn.addEventListener('click', () => {
 	elements.viewToggleBtn.textContent = state.viewMode === 'grid' ? 'Switch to list' : 'Switch to grid';
 });
 
-initMetadataPanel(state, elements, renderer.render);
-initSettings(elements, renderer.render);
 initNavigation();
 renderer.render();
 
-window.SciolyResourceVault = {
+window.PHSOResourceVault = {
 	getData: () => state.resources,
 	getCollections: () => state.collections,
 	getArchives: () => state.archives,
