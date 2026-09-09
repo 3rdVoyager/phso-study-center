@@ -1,0 +1,28 @@
+{
+  "name": "phso-resource-vault",
+  "version": "1.0.0",
+  "description": "This site is an internal team study tool created by Pilgrimage Homeschool team members. Its purpose is to organize publicly available resources to help our Science Olympiad team prepare for competitions more effectively.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/phso-resource-vault"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/3rdVoyager/phso-resource-vault/issues"
+  },
+  "homepage": "https://github.com/3rdVoyager/phso-resource-vault#readme",
+  "devDependencies": {
+    "wrangler": "^4.130.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260908.1": true
+  }
+}
