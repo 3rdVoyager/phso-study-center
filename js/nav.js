@@ -1,7 +1,8 @@
 const links = [
 	{ href: '/', label: 'Home', path: '/' },
 	{ href: '/resource-vault/', label: 'Resource Vault', path: '/resource-vault/' },
-	{ href: '/about', label: 'About', path: '/about' }
+  { href: '/about', label: 'About', path: '/about' },
+  { href: '/admin', label: 'Admin', path: '/admin' }
 ];
 
 const currentPath = location.pathname.endsWith('/')
