@@ -6,8 +6,7 @@ const header = `
     </a>
     <nav>
       <a class="button nav-link" href="/">Home</a>
-      <a class="button nav-link" href="/study-center/">Study Center</a>
-      <a class="button nav-link" href="/about">About</a>
+      <a class="button nav-link" href="/resource-vault/">Resource Vault</a>
       <a class="button nav-link" href="/admin">Admin</a>
     </nav>
   </header>

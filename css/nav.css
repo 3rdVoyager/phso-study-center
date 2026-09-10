@@ -48,7 +48,7 @@
 
 .site-footer {
 	padding: 16px;
-	margin-top: 64px;
+	margin-top: 0;
 	border-top: 3px solid var(--color-gold);
 	background: var(--color-slate);
 	color: var(--color-slate-light);

@@ -4,22 +4,15 @@
     justify-content: center;
 }
 
-.homepage-heading h1 {
-    max-width: 900px;
-    text-align: center;
-}
-
-.homepage-logo {
-    width: clamp(96px, 16vw, 160px);
-    height: clamp(96px, 16vw, 160px);
-    object-fit: contain;
-    flex: 0 0 auto;
-}
-
 .homepage-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.homepage-hero h1 {
+    font-size: 4rem;
+    text-align: center;
 }
 
 .homepage-hero p {
