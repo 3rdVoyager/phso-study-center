@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "phso-resource-vault",
+  "name": "phso-study-center",
   "compatibility_date": "2026-09-08",
   "pages_build_output_dir": ".",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "phso-resource-vault",
+      "database_name": "phso-study-center",
       "database_id": "4cbd6a7a-be99-4e0d-92df-40ce680d83f6",
       "migrations_dir": "./migrations"
     }

@@ -1,5 +1,5 @@
 {
-  "name": "phso-resource-vault",
+  "name": "phso-study-center",
   "version": "1.0.0",
   "description": "This site is an internal team study tool created by Pilgrimage Homeschool team members. Its purpose is to organize publicly available resources to help our Science Olympiad team prepare for competitions more effectively.",
   "main": "index.js",

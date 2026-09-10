@@ -1,0 +1,28 @@
+.homepage-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage-heading h1 {
+    max-width: 900px;
+    text-align: center;
+}
+
+.homepage-logo {
+    width: clamp(96px, 16vw, 160px);
+    height: clamp(96px, 16vw, 160px);
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.homepage-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepage-hero p {
+    font-size: 1.25rem;
+    font-weight: 400;
+}

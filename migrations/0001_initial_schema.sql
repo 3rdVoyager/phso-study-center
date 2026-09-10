@@ -1,4 +1,6 @@
 -- Migration number: 0001 	 2026-09-08T23:45:24.625Z
+-- This is the initial schema for the PHSO Study Center DB.
+
 CREATE TABLE resources (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,

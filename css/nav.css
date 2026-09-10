@@ -23,6 +23,16 @@
 	text-decoration: none;
 }
 
+.nav-link {
+	background: transparent;
+	color: var(--color-slate-light);
+}
+
+.nav-link:hover {
+	background: var(--color-burgundy);
+	color: var(--color-gold-light);
+}
+
 .brand-logo {
 	width: 44px;
 	height: 44px;
@@ -34,20 +44,6 @@
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 10px;
-}
-
-.site-header nav a {
-	padding: 8px 10px;
-	border-radius: 4px;
-	color: var(--color-slate-light);
-	font-weight: 700;
-	text-decoration: none;
-}
-
-.site-header nav a:hover,
-.site-header nav a[aria-current="page"] {
-	background: var(--color-burgundy);
-	color: var(--color-gold-light);
 }
 
 .site-footer {

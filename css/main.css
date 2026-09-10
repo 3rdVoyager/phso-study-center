@@ -1,3 +1,7 @@
 @import url("./variables.css");
 @import url("./base.css");
+@import url("./buttons.css");
 @import url("./nav.css");
+@import url("./home.css");
+@import url("./admin.css");
+@import url("./components.css")

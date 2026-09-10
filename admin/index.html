@@ -3,19 +3,63 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Admin | PHSO Resource Vault</title>
+    <title>Admin | PHSO Study Center</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <script type="module" src="/js/nav.js" defer></script>
+    <script type="module" src="/js/admin.js" defer></script>
   </head>
   <body>
     <main class="page-content">
       <section class="page-intro">
         <h1>Admin</h1>
         <p>
-          Welcome to the PHSO Resource Vault admin panel. Here you can manage the resources and categories.
+          Add resources to the PHSO Study Center. Your Cloudflare Access
+          login identifies who created each resource.
         </p>
       </section>
+
+      <div class="admin-forms">
+        <section class="admin-panel" aria-labelledby="bulk-resource-heading">
+          <h2 id="bulk-resource-heading">Bulk JSON import</h2>
+          <p>
+            Paste an array of resource objects. Every object must include
+            <code>title</code>, <code>url</code>, and <code>resource_type</code>.
+          </p>
+
+          <form id="bulk-resource-form">
+            <div class="form-field">
+              <label for="bulk-resources">Resource JSON</label>
+              <textarea
+                id="bulk-resources"
+                name="bulk_resources"
+                rows="20"
+                spellcheck="false"
+                placeholder='[
+  {
+    "title": "Anatomy Study Guide",
+    "url": "https://example.com/anatomy",
+    "resource_type": "Study guide",
+    "event": "Anatomy",
+    "season": "2026",
+    "division": "B",
+    "description": "Helpful preparation material."
+  }
+]'
+                required
+              ></textarea>
+            </div>
+
+            <button class="button primary" type="submit">Import resources</button>
+            <p
+              id="bulk-form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </section>
+      </div>
     </main>
   </body>
 </html>

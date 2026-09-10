@@ -1,0 +1,52 @@
+.button {
+	display: inline-block;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.button.primary {
+	background: var(--color-gold);
+	color: var(--color-burgundy-dark);
+}
+
+.button.primary:hover {
+	background: var(--color-gold-light);
+}
+
+.button.primary:active {
+	background: var(--color-burgundy);
+	color: var(--color-gold-light);
+}
+
+.button.secondary {
+	background: transparent;
+	color: var(--color-slate-light);
+}
+
+.button.secondary:hover {
+	background: var(--color-burgundy);
+	color: var(--color-gold-light);
+}
+
+.button.secondary:active {
+	background: var(--color-burgundy-dark);
+	color: var(--color-gold-light);
+}
+
+.button.tertiary {
+	background: transparent;
+	color: var(--color-burgundy);
+}
+
+.button.tertiary:hover {
+	background: var(--color-burgundy-soft);
+}
+
+.button.tertiary:active {
+	background: var(--color-burgundy);
+	color: var(--color-gold-light);
+}

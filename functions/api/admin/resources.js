@@ -20,6 +20,56 @@ function getText(value, fieldName, maxLength) {
   return text;
 }
 
+function getOptionalText(value, fieldName, maxLength) {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+
+  return getText(value, fieldName, maxLength);
+}
+
+function validateResource(resource, resourceLabel) {
+  if (!resource || Array.isArray(resource) || typeof resource !== "object") {
+    throw new Error(`${resourceLabel} must be an object`);
+  }
+
+  const title = getText(resource.title, `${resourceLabel}.title`, 200);
+  const url = getText(resource.url, `${resourceLabel}.url`, 2_000);
+  const resourceType = getText(
+    resource.resource_type,
+    `${resourceLabel}.resource_type`,
+    50,
+  );
+
+  try {
+    const parsedUrl = new URL(url);
+
+    if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+      throw new Error();
+    }
+  } catch {
+    throw new Error(`${resourceLabel}.url must use http or https`);
+  }
+
+  return {
+    title,
+    url,
+    resourceType,
+    event: getOptionalText(resource.event, `${resourceLabel}.event`, 100),
+    season: getOptionalText(resource.season, `${resourceLabel}.season`, 50),
+    division: getOptionalText(
+      resource.division,
+      `${resourceLabel}.division`,
+      50,
+    ),
+    description: getOptionalText(
+      resource.description,
+      `${resourceLabel}.description`,
+      2_000,
+    ),
+  };
+}
+
 export async function onRequestPost({ request, env }) {
   // Cloudflare Access supplies this after the request passes Access.
   const createdBy = request.headers.get("Cf-Access-Authenticated-User-Email");
@@ -37,68 +87,72 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
-    const title = getText(body.title, "title", 200);
-    const url = getText(body.url, "url", 2_000);
-    const resourceType = getText(body.resource_type, "resource_type", 50);
+    const resources = Array.isArray(body) ? body : [body];
 
-    try {
-      const parsedUrl = new URL(url);
-
-      if (!["http:", "https:"].includes(parsedUrl.protocol)) {
-        return errorResponse("URL must use http or https");
-      }
-    } catch {
-      return errorResponse("URL is invalid");
+    if (resources.length === 0) {
+      return errorResponse("At least one resource is required");
     }
 
-    const event = body.event ? getText(body.event, "event", 100) : null;
-    const season = body.season ? getText(body.season, "season", 50) : null;
-    const division = body.division
-      ? getText(body.division, "division", 50)
-      : null;
-    const description = body.description
-      ? getText(body.description, "description", 2_000)
-      : null;
+    if (resources.length > 100) {
+      return errorResponse("A maximum of 100 resources can be added at once");
+    }
 
-    const result = await env.DB.prepare(
-      `
-        INSERT INTO resources (
-          title,
-          url,
-          resource_type,
-          event,
-          season,
-          division,
-          description,
-          created_by
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        RETURNING
-          id,
-          title,
-          url,
-          resource_type,
-          event AS event_name,
-          season,
-          division,
-          description,
-          created_at,
-          created_by
-      `,
-    )
-      .bind(
-        title,
-        url,
-        resourceType,
-        event,
-        season,
-        division,
-        description,
+    const validatedResources = resources.map((resource, index) =>
+      validateResource(resource, `resources[${index}]`),
+    );
+
+    const statements = validatedResources.map((resource) =>
+      env.DB.prepare(
+        `
+          INSERT INTO resources (
+            title,
+            url,
+            resource_type,
+            event,
+            season,
+            division,
+            description,
+            created_by
+          )
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+          RETURNING
+            id,
+            title,
+            url,
+            resource_type,
+            event AS event_name,
+            season,
+            division,
+            description,
+            created_at,
+            created_by
+        `,
+      ).bind(
+        resource.title,
+        resource.url,
+        resource.resourceType,
+        resource.event,
+        resource.season,
+        resource.division,
+        resource.description,
         createdBy,
-      )
-      .first();
+      ),
+    );
 
-    return Response.json(result, { status: 201 });
+    const results = await env.DB.batch(statements);
+    const createdResources = results.flatMap((result) => result.results || []);
+
+    if (Array.isArray(body)) {
+      return Response.json(
+        {
+          created_count: createdResources.length,
+          resources: createdResources,
+        },
+        { status: 201 },
+      );
+    }
+
+    return Response.json(createdResources[0], { status: 201 });
   } catch (error) {
     return errorResponse(error.message || "Could not create resource");
   }
